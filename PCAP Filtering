@@ -1,0 +1,32 @@
+Wireshark only has a few that you will need to be familiar with:
+
+and          - operator:   and / &&
+or           - operator:   or / ||
+equals       - operator:   eq / ==
+not equal    - operator:   ne / !=
+greater than - operator:   gt /  >
+less than    - operator:   lt / <
+
+Wireshark also has operators: contains, 
+                              matches,
+                              bitwise_and operators
+Basic Filtering
+The basic syntax of Wireshark filters is some kind of service or "protocol" like ip or tcp, followed by a "dot" then whatever is being filtered for 
+example an address, MAC, SRC, protocol, etc.
+
+Filtering by IP: 
+                            Syntax: ip.addr == <IP Address>
+
+Filtering by SRC and DST: 
+                            Syntax: ip.src == <SRC IP Address> and ip.dst == <DST IP Address> 
+
+
+Filtering by TCP Protocols:
+Wireshark can filter by both port numbers as well as protocol names.
+                            
+                            Syntax: tcp.port eq <Port #> or <Protocol Name>
+
+
+Filtering by UDP Protocols: You can also filter by UDP ports by changing the prefix from tcp to udp
+
+                            Syntax: udp.port eq <Port #> or <Protocol Name>
