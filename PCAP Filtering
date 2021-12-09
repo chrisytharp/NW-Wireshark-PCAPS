@@ -1,15 +1,10 @@
 Wireshark only has a few that you will need to be familiar with:
-
-and          - operator:   and / &&
-or           - operator:   or / ||
-equals       - operator:   eq / ==
-not equal    - operator:   ne / !=
-greater than - operator:   gt /  >
-less than    - operator:   lt / <
-
-Wireshark also has operators: contains, 
-                              matches,
-                              bitwise_and operators
+                                                                  and          - operator:   and / &&
+                                                                  or           - operator:   or / ||
+                                                                  equals       - operator:   eq / ==
+                                                                  not equal    - operator:   ne / !=
+                                                                  greater than - operator:   gt /  >
+                                                                  less than    - operator:   lt / <
 Basic Filtering
 ----------------
 The basic syntax of Wireshark filters is some kind of service or "protocol" like ip or tcp, followed by a "dot" then whatever is being filtered for 
@@ -22,3 +17,6 @@ tcp.port eq <Port #> or <Protocol Name>
 udp.port eq <Port #> or <Protocol Name>
 http.request.method == POST
 
+See FTP Files
+------------
+search syntax "ftp-data"
