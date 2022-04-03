@@ -1,0 +1,37 @@
+HTTP GET requests
+GET requests are used to retrieve information from a given server using a URI. GET is one of the most common HTTP methods and should only be used to
+retrieve information while having no other effect on the data.
+
+Responses to HTTP request traffic can be inspected for information such as status codes, which indicate whether a request has been successful or not, 
+along with information about why a request may or may not have been successful.
+
+HTTP data can be zeroed down on using the http Wireshark Display Filter.
+
+  TCP streams
+
+    TCP streams are blocks of data sent from an application to TCP. In Wireshark, you are able to view these streams in the way that the application 
+    layer sees it. This can be extremely useful when analysing and understanding traffic within Wireshark because it allows you to read and extract crucial pieces of data/information easily.
+
+In order to filter by a specific TCP stream in Wireshark, you can use the following filter:
+
+  tcp.stream eq 1
+-------------------------
+Private Key Decryption
+Wireshark supports TLS decryption as long as appropriate secrets are provided. There are two applicable methods to achieve this:
+
+Decrypting Wireshark traffic with a private key involves a few steps.
+
+  The key pieces of information you need to decrypt traffic using an RSA private key are:
+
+    IP address: the IP address of the host which holds the private key used to decrypt the data, and serves the certificate.
+    Port: the destination port used to communicate with the host that holds the private key.
+    Protocol: the upper-level protocol being encrypted by SSL/TLS, for example, the protocol being encrypted over an HTTPS connection is HTTP.
+    Key file: location of the corresponding key file.
+    Password: the passphrase used to protect the private key file.
+    
+In order to decrypt Wireshark traffic using an RSA private key, you need to edit some preference settings in Wireshark. This can be achieved by
+navigating to Edit > Preferences > Protocols > TLS > RSA keys list.
+
+When the additional dialogue box pops up, fill in the relevant details and then hit ‘OK’.
+
+
