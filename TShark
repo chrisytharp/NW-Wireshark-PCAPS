@@ -1,0 +1,37 @@
+Tshark is a command line version of Wireshark GUI
+-------
+Tshark captures files in a 'libpcap' format - a format used by other tools such as tcpdump
+Although tcpdump is the industry standard CLI Packet Analysis tool, Tshark & tcpdump are equal when it comes to performance. 
+For those who are fluent in Wireshark filters and syntax, Tshark is a quicker alternative to tcpdump and is more easily
+scalable.
+
+--------------
+USB Captures
+--------------
+
+Wireshark also captures USB information traffic from anything which may be externally connected to the system such as keyboards, USB drives & Tshark can do this too,
+tcpdump is solely a network analysis tool. When starting to conduct a packet analysis, using the 
+-i option will start the capture from a specified network interface if the system allows monitor mode. 
+
+            tshark -i [Choose Interface To Monitor]
+
+To read data from a specified file type, you can use the -r option.
+
+            tshark -r [file]
+
+The benefit of using Tshark is that you can use Wireshark syntax for applying display filters to your captures. This is useful to help organise packet captures and 
+filter out specific data such as protocols or host information.
+
+            tshark -r [file] -Y [wireshark display filter]
+
+After specifying the display filter, you can further filter the packets using the -T fields and -e option. 
+With these you can specify different layers of filters using Wireshark syntax. 
+-T determines the format of the text output ofTshark
+-e will allow you to specify different fields of a packet to be printed. 
+
+            tshark- r [file] -Y [wireshark display filter] -T fields -e [field]
+
+Display filters also use BPF syntax, can be applied after the capture and can be extremely useful when used correctly. Display/BPF filters use primitives in the
+arguments (&&, ||, !).
+
+Syntax: tshark -r [file] tcp.port == 80 || udp.port == 80
